@@ -14,8 +14,8 @@ public class StartApp {
 
         account.printStatement(System.out);
 
-        //Programa prueba
+        //Filter, 0 para dates, 1 para credit y 2 para debit
         FilterStatements filter = new FilterStatements();
-        filter.show(0, account);
+        filter.show(1, account);
     }
 }

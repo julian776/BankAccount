@@ -4,6 +4,13 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 public class FilterStatements {
+    /*
+    Los numeros en la funcion show para determinar que filtrar
+    0 dates
+    1 credit
+    2 debit
+     */
+
     public void show(int filter, Account account) {
         Statement statement = account.statement;
         LinkedList historial = statement.historial;
@@ -19,7 +26,6 @@ public class FilterStatements {
                 System.out.println("  Debit  ");
                 break;
         }
-        //Collections.reverse(historial);
         historial.forEach(x -> printFilteredLine((LinkedList) x, filter));
     }
 
@@ -27,15 +33,12 @@ public class FilterStatements {
         if(filter == 0){
             System.out.println(x.get(filter));
         }
-        if (filter == 2) {
-            filter = 1;
-            int num = (int) x.get(filter);
-            if (num < 0) {System.out.println((num)*-1);}
+        if (filter == 2 || filter == 1) {
+            try{
+                int num = (int) x.get(filter);
+                System.out.println("   "+num);
+            }catch (Exception e){
+            }
         }
-        else if(filter == 1){
-            int num = (int) x.get(filter);
-            if( num>= 0){System.out.println(num);}
-        }
-
     }
 }
